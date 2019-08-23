@@ -28,7 +28,7 @@ class AuthController {
       return res.status(404).json({ error: 'User not found' });
     }
 
-    if (!(await user.checkPassword(password))) {
+    if (!(await user.isPasswordCorrect(password))) {
       return res.status(422).json({ error: 'Passord does not match' });
     }
 
